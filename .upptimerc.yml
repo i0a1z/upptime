@@ -1,10 +1,13 @@
 # Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
+owner: i0a1z # Your GitHub organization or username, where this repository lives
 repo: upptime # The name of this repository
 
 sites:
-  - name: Google
-    url: https://www.google.com
+  - name: Home Assistant
+    url: https://home.oatz.me
+    # (Optional) ตั้งค่า expected status code (ปกติ HA หน้า Login คือ 200 OK)
+    expectedStatusCodes:
+      - 200    
   - name: Wikipedia
     url: https://en.wikipedia.org
   - name: Hacker News
@@ -20,17 +23,25 @@ sites:
 status-website:
   # Add your custom domain name, or remove the `cname` line if you don't have a domain
   # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: cname: monitor.oatz.me
+  # ปรับแต่งหน้าเว็บ
+  logoUrl: https://raw.githubusercontent.com/upptime/upptime/master/assets/icon.svg
+  name: Oatz System Status
+  introTitle: "**Oatz's Smart Home Status**"
+  introMessage: "Real-time monitoring for Home Assistant & Services."
   navbar:
     - title: Status
       href: /
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
 
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+# ตั้งเวลา check (Default คือทุก 5 นาที หรือ 300 วินาที)
+# อย่าตั้งถี่เกินไป เดี๋ยวโควต้า GitHub Actions หมดเร็ว
+workflowSchedule:
+  graphs: "0 0 * * *"
+  responseTime: "0 23 * * *"
+  staticSite: "0 1 * * *"
+  summary: "0 0 * * *"
+  updateTemplate: "0 0 * * *"
+  updates: "0 3 * * *"
+  uptime: "*/5 * * * *"
